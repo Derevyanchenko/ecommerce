@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Вёрстка для WooCommerce</title>
+
+
+    <!--== Google Fonts ==-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+
+    <!--=== Bootstrap CSS ===-->
+    <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet">
+    <!--=== Font-Awesome CSS ===-->
+    <link href="assets/css/vendor/font-awesome.css" rel="stylesheet">
+    <!--=== Dl Icon CSS ===-->
+    <link href="assets/css/vendor/dl-icon.css" rel="stylesheet">
+    <!--=== Plugins CSS ===-->
+    <link href="assets/css/plugins.css" rel="stylesheet">
+    <!--=== Helper CSS ===-->
+    <link href="assets/css/helper.min.css" rel="stylesheet">
+    <!--=== Main Style CSS ===-->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+
+
+<!--== Start Header Area ===-->
+<header id="header-area" class="sticky-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header-content-wrapper d-flex align-items-center">
+                    <div class="header-left-area d-flex align-items-center">
+                        <!-- Start Logo Area -->
+                        <div class="logo-area">
+                            <a href="index.html">Курс Миши</a>
+                        </div>
+                        <!-- End Logo Area -->
+
+                    </div>
+
+                    <div class="header-mainmenu-area d-none d-lg-block">
+                        <!-- Start Main Menu -->
+                        <nav id="mainmenu-wrap">
+                            <ul class="nav mainmenu justify-content-center">
+    <li class="dropdown-show"><a class="current" href="index.html">Каталог</a></li>
+    <li class="dropdown-show"><a href="#">Страницы</a>
+        <ul class="dropdown-nav">
+            <li><a href="cart.html">Корзина</a></li>
+            <li><a href="checkout.html">Страница оплаты</a></li>
+        </ul>
+    </li>
+		<li class="dropdown-show"><a href="#">Товары</a>
+        <ul class="dropdown-nav">
+            <li><a href="single-product.html">Простой</a></li>
+            <li><a href="single-product-grouped.html">Сгруппированный</a></li>
+            <li><a href="single-product-affiliate.html">Внешний/Партнерский</a></li>
+						<li><a href="single-product-variable.html">Вариативный</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Блог</a></li>
+    <li><a href="#">Контакты</a></li>
+</ul>
+                        </nav>
+                        <!-- End Main Menu -->
+                    </div>
+
+                    <div class="header-right-area d-flex justify-content-end align-items-center">
+                        <button class="mini-cart-icon modalActive" data-mfp-src="#miniCart-popup">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="cart-count">3</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--== End Header Area ===-->
+
+<!-- Start Page Header Wrapper -->
+<div class="page-header-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="page-header-content">
+                    <h2>Оформление заказа</h2>
+                    <nav class="page-breadcrumb">
+                        <ul class="d-flex justify-content-center">
+                            <li><a href="index.html">Главная</a></li>
+                            <li><a href="cart.html">Корзина</a></li>
+                            <li><a href="checkout.html" class="active">Оформление заказа</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Header Wrapper -->
+
+<!--== Start Checkout Page Wrapper ==-->
+<div id="checkout-page-wrapper" class="pt-90 pt-md-60 pt-sm-50 pb-50 pb-md-20 pb-sm-10">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="checkout-page-coupon-area">
+                    <!-- Checkout Coupon Accordion Start -->
+                    <div class="checkoutAccordion" id="checkOutAccordion">
+                        <div class="card">
+                            <h3>Имеете купон? <span data-toggle="collapse"
+                                                                                       data-target="#couponaccordion">Нажмите тут, чтобы ввести его</span>
+                            </h3>
+                            <div id="couponaccordion" class="collapse" data-parent="#checkOutAccordion">
+                                <div class="card-body">
+                                    <div class="apply-coupon-wrapper">
+                                        <p>Если у вас есть купон, пожалуйста примените его ниже.</p>
+                                        <form action="#" method="post">
+                                            <input type="text" placeholder="Ваш код купона" required/>
+                                            <button class="btn btn-black">Применить купон</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Checkout Coupon Accordion End -->
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- Checkout Form Area Start -->
+                <div class="checkout-billing-details-wrap">
+                    <h2>Детали оплаты</h2>
+                    <div class="billing-form-wrap">
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="single-input-item">
+                                        <label for="f_name" class="required">Имя</label>
+                                        <input type="text" id="f_name" placeholder="Имя" required />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="single-input-item">
+                                        <label for="l_name" class="required">Фамилия</label>
+                                        <input type="text" id="l_name" placeholder="Фамииля" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="single-input-item">
+                                <label for="email" class="required">Email</label>
+                                <input type="email" id="email" placeholder="Email" required />
+                            </div>
+
+                            <div class="single-input-item">
+                                <label for="com-name">Компания</label>
+                                <input type="text" id="com-name" placeholder="Компания" />
+                            </div>
+
+                            <div class="single-input-item">
+                                <label for="country" class="required">Страна</label>
+                                <select name="country" id="country">
+                                    <option value="">Анор Лондо</option>
+                                </select>
+                            </div>
+
+                            <div class="single-input-item">
+                                <label for="street-address" class="required">Адрес</label>
+                                <input type="text" id="street-address" placeholder="Номер дома и название улицы" required />
+                            </div>
+
+                            <div class="single-input-item">
+                                <input type="text"  placeholder="Дополнительные сведения об адресе" />
+                            </div>
+
+                            <div class="single-input-item">
+                                <label for="town" class="required">Город</label>
+                                <input type="text" id="town"  placeholder="Город" required />
+                            </div>
+
+                            <div class="single-input-item">
+                                <label for="state">Область / район</label>
+                                <input type="text" id="state"  placeholder="Область / район" />
+                            </div>
+
+                            <div class="single-input-item">
+                                <label for="postcode" class="required">Почтовый индекс</label>
+                                <input type="text" id="postcode"  placeholder="Почтовый индекс" required />
+                            </div>
+
+                            <div class="single-input-item">
+                                <label for="phone">Телефон</label>
+                                <input type="text" id="phone"  placeholder="Телефон" />
+                            </div>
+
+                            <div class="checkout-box-wrap">
+                                <div class="single-input-item">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="ship_to_different">
+                                        <label class="custom-control-label" for="ship_to_different">Доставка по другому адресу?</label>
+                                    </div>
+                                </div>
+                                <div class="ship-to-different single-form-row">
+																	<div class="row">
+																			<div class="col-md-6">
+																					<div class="single-input-item">
+																							<label for="f_name" class="required">Имя</label>
+																							<input type="text" id="f_name" placeholder="Имя" required />
+																					</div>
+																			</div>
+
+																			<div class="col-md-6">
+																					<div class="single-input-item">
+																							<label for="l_name" class="required">Фамилия</label>
+																							<input type="text" id="l_name" placeholder="Фамииля" required />
+																					</div>
+																			</div>
+																	</div>
+
+																	<div class="single-input-item">
+																			<label for="email" class="required">Email</label>
+																			<input type="email" id="email" placeholder="Email" required />
+																	</div>
+
+																	<div class="single-input-item">
+																			<label for="com-name">Компания</label>
+																			<input type="text" id="com-name" placeholder="Компания" />
+																	</div>
+
+																	<div class="single-input-item">
+																			<label for="country" class="required">Страна</label>
+																			<select name="country" id="country">
+																					<option value="">Анор Лондо</option>
+																			</select>
+																	</div>
+
+																	<div class="single-input-item">
+																			<label for="street-address" class="required">Адрес</label>
+																			<input type="text" id="street-address" placeholder="Номер дома и название улицы" required />
+																	</div>
+
+																	<div class="single-input-item">
+																			<input type="text"  placeholder="Дополнительные сведения об адресе" />
+																	</div>
+
+																	<div class="single-input-item">
+																			<label for="town" class="required">Город</label>
+																			<input type="text" id="town"  placeholder="Город" required />
+																	</div>
+
+																	<div class="single-input-item">
+																			<label for="state">Область / район</label>
+																			<input type="text" id="state"  placeholder="Область / район" />
+																	</div>
+
+																	<div class="single-input-item">
+																			<label for="postcode" class="required">Почтовый индекс</label>
+																			<input type="text" id="postcode"  placeholder="Почтовый индекс" required />
+																	</div>
+
+                                </div>
+                            </div>
+
+                            <div class="single-input-item">
+                                <label for="ordernote">Примечание к заказу (необязательно)</label>
+                                <textarea name="ordernote" id="ordernote" cols="30" rows="3" placeholder="Примечания к вашему заказу, например, особые пожелания отделу доставки."></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-xl-5 ml-auto">
+                <!-- Checkout Page Order Details -->
+                <div class="order-details-area-wrap">
+                    <h2>Ваш заказ</h2>
+
+                    <div class="order-details-table table-responsive">
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>Товары</th>
+                                    <th>Итого</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="cart-item">
+                                    <td><span class="product-title">Товар-супер</span> <span class="product-quantity">&#215;  1</span></td>
+                                    <td>3999 р</td>
+                                </tr>
+                                <tr class="cart-item">
+                                    <td><span class="product-title">Второй товар в корзине</span> <span class="product-quantity">&#215;  2</span></td>
+                                    <td>2999 р</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr class="cart-subtotal">
+                                    <th>Подытог</th>
+                                    <td>39000 р</td>
+                                </tr>
+                                <tr class="shipping">
+                                    <th>Доставка</th>
+                                    <td>
+																			<ul class="shipping-method">
+																					<li>
+																							<div class="custom-control custom-radio">
+																									<input type="radio" id="no_shipping" name="shipping_method" class="custom-control-input" checked />
+																									<label class="custom-control-label" for="no_shipping">Самовывоз</label>
+																							</div>
+																					</li>
+																					<li>
+																							<div class="custom-control custom-radio">
+																									<input type="radio" id="courier_method" name="shipping_method" class="custom-control-input" />
+																									<label class="custom-control-label" for="courier_method">Курьером : 500р</label>
+																							</div>
+																					</li>
+																			</ul>
+                                    </td>
+                                </tr>
+                                <tr class="final-total">
+                                    <th>Итого</th>
+                                    <td><span class="total-amount">29987 р</span></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <div class="order-details-footer">
+                        <p>Ваши персональные данные будут храниться хорошо и не разглашаться, подробнее в
+                            <a href="#" class="text-danger">политике конфиденциальности</a>.</p>
+                        <div class="custom-control custom-checkbox mt-10">
+                            <input type="checkbox" id="privacy" class="custom-control-input" required />
+                            <label for="privacy" class="custom-control-label">Я прочитал и соглашаюсь с правилами</label>
+                        </div>
+
+                        <button class="btn btn-full btn-black mt-26">Разместить заказ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--== End Checkout Page Wrapper ==-->
+
+<!--== Start Footer Section ===-->
+<footer id="footer-area">
+    <!-- Start Footer Widget Area -->
+    <div class="footer-widget-area pt-40 pb-28">
+        <div class="container">
+            <div class="footer-widget-content">
+                <div class="row">
+
+                    <!-- Start Footer Widget Item -->
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="footer-widget-item-wrap">
+                            <h3 class="widget-title">Каталог</h3>
+                            <div class="widget-body">
+                                <ul class="footer-list">
+                                    <li><a href="index.html">Обычный</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Footer Widget Item -->
+
+                    <!-- Start Footer Widget Item -->
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="footer-widget-item-wrap">
+                            <h3 class="widget-title">Страницы</h3>
+                            <div class="widget-body">
+                                <ul class="footer-list">
+
+                                    <li><a href="cart.html">Корзина</a></li>
+                                    <li><a href="checkout.html">Оплата</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Footer Widget Item -->
+
+                    <!-- Start Footer Widget Item -->
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="footer-widget-item-wrap">
+                            <h3 class="widget-title">Товары</h3>
+                            <div class="widget-body">
+                                <ul class="footer-list">
+                                    <li><a href="single-product.html">Простой</a></li>
+                                    <li><a href="single-product-grouped.html">Сгруппированный</a></li>
+                                    <li><a href="single-product-affiliate.html">Внешний/Партнерский</a></li>
+																		<li><a href="single-product-variable.html">Вариативный</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Footer Widget Item -->
+
+                    <!-- Start Footer Widget Item -->
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="footer-widget-item-wrap">
+                            <h3 class="widget-title">Напишите мне</h3>
+                            <div class="widget-body">
+                                <div class="contact-text">
+                                    <a href="#">(+1) 234 56 78</a>
+                                    <a href="#">me@misha.blog</a>
+                                    <p>Санкт-Петербург, Невский пр.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Footer Widget Item -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer Widget Area -->
+
+    <!-- Start Footer Bottom Area -->
+    <div class="footer-bottom-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 col-lg-3 m-auto order-1">
+                    <div class="footer-social-icons nav justify-content-center justify-content-sm-start mb-xs-10">
+                        <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-sm-5 col-lg-6 m-auto order-3 order-sm-2 text-center text-sm-left text-lg-center">
+                    <div class="copyright-text mt-xs-10 ">
+                        <p>&copy; 2020 Курс WooCommerce от Миши Рудрастых.</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-lg-3 m-auto order-2 text-center text-md-right">
+                    <img src="assets/img/payments.png" alt="Payment Method"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer Bottom Area -->
+</footer>
+<!--== End Footer Section ===-->
+
+
+<!--== Start Mini Cart Wrapper ==-->
+<div class="mfp-hide modal-minicart" id="miniCart-popup">
+    <div class="minicart-content-wrap">
+        <h2>Корзина</h2>
+        <div class="minicart-product-list">
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex">
+                <figure class="product-thumb">
+                    <a href="single-product.html"><img src="assets/img/products/prod-1-1.jpg" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="single-product.html">Какой-то товар</a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">1</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price">9999 р</span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
+
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex">
+                <figure class="product-thumb">
+                    <a href="single-product.html"><img src="assets/img/products/prod-2-1.jpg" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="single-product.html">Второй товар</a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">2</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price">3900 р</span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
+
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex">
+                <figure class="product-thumb">
+                    <a href="single-product.html"><img src="assets/img/products/prod-3-1.jpg" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="single-product.html">Ещё один товар</a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">1</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price">3300 р</span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
+
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex">
+                <figure class="product-thumb">
+                    <a href="single-product.html"><img src="assets/img/products/prod-4-1.jpg" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="single-product.html">Найс сникеры</a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">1</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price">3300 р</span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
+        </div>
+        <div class="minicart-calculation-wrap d-flex justify-content-between align-items-center">
+            <span class="cal-title">Подытог</span>
+            <span class="cal-amount">11900 р</span>
+        </div>
+        <div class="minicart-btn-group mt-38">
+            <a href="cart.html" class="btn btn-black ">Просмотр корзины</a>
+            <a href="checkout.html" class="btn btn-black mt-10">Оформление заказа</a>
+        </div>
+    </div>
+</div>
+<!--== End Mini Cart Wrapper ==-->
+
+
+
+<!--=======================Javascript============================-->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+</body>
+</html>

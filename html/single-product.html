@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Вёрстка для WooCommerce</title>
+
+
+    <!--== Google Fonts ==-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+
+    <!--=== Bootstrap CSS ===-->
+    <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet">
+    <!--=== Font-Awesome CSS ===-->
+    <link href="assets/css/vendor/font-awesome.css" rel="stylesheet">
+    <!--=== Dl Icon CSS ===-->
+    <link href="assets/css/vendor/dl-icon.css" rel="stylesheet">
+    <!--=== Plugins CSS ===-->
+    <link href="assets/css/plugins.css" rel="stylesheet">
+    <!--=== Helper CSS ===-->
+    <link href="assets/css/helper.min.css" rel="stylesheet">
+    <!--=== Main Style CSS ===-->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<!--== Start Header Area ===-->
+<header id="header-area" class="sticky-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header-content-wrapper d-flex align-items-center">
+                    <div class="header-left-area d-flex align-items-center">
+                        <!-- Start Logo Area -->
+                        <div class="logo-area">
+                            <a href="index.html">Курс Миши</a>
+                        </div>
+                        <!-- End Logo Area -->
+
+                    </div>
+
+                    <div class="header-mainmenu-area d-none d-lg-block">
+                        <!-- Start Main Menu -->
+                        <nav id="mainmenu-wrap">
+                            <ul class="nav mainmenu justify-content-center">
+    <li class="dropdown-show"><a class="current" href="index.html">Каталог</a></li>
+    <li class="dropdown-show"><a href="#">Страницы</a>
+        <ul class="dropdown-nav">
+            <li><a href="cart.html">Корзина</a></li>
+            <li><a href="checkout.html">Страница оплаты</a></li>
+        </ul>
+    </li>
+		<li class="dropdown-show"><a href="#">Товары</a>
+        <ul class="dropdown-nav">
+            <li><a href="single-product.html">Простой</a></li>
+            <li><a href="single-product-grouped.html">Сгруппированный</a></li>
+            <li><a href="single-product-affiliate.html">Внешний/Партнерский</a></li>
+						<li><a href="single-product-variable.html">Вариативный</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Блог</a></li>
+    <li><a href="#">Контакты</a></li>
+</ul>
+                        </nav>
+                        <!-- End Main Menu -->
+                    </div>
+
+                    <div class="header-right-area d-flex justify-content-end align-items-center">
+                        <button class="mini-cart-icon modalActive" data-mfp-src="#miniCart-popup">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="cart-count">3</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--== End Header Area ===-->
+
+<!-- Start Page Header Wrapper -->
+<div class="page-header-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="page-header-content">
+                    <h2>Название товара</h2>
+                    <nav class="page-breadcrumb">
+                        <ul class="d-flex justify-content-center">
+                            <li><a href="index.html">Главная</a></li>
+                            <li><a href="index.html">Каталог</a></li>
+                            <li><a href="" class="active">Название товара</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Header Wrapper -->
+
+<!--== Start Single Product Page Wrapper ==-->
+<div id="single-product-page" class="pt-90 pt-md-60 pt-sm-50 pb-92 pb-md-58 pb-sm-50">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Start Single Product Thumbnail -->
+            <div class="col-xl-7 col-lg-6">
+                <div class="single-product-thumb-wrap tab-style-left p-0 pb-sm-30 pb-md-30">
+                    <!-- Product Thumbnail Large View -->
+                    <div class="product-thumb-large-view">
+                        <div class="product-thumb-carousel vertical-tab">
+                            <figure class="product-thumb-item">
+                                <img src="assets/img/single-product/prod-1-1.jpg" alt="Single Product"/>
+                            </figure>
+                            <figure class="product-thumb-item">
+                                <img src="assets/img/single-product/prod-1-2.jpg" alt="Single Product"/>
+                            </figure>
+                            <figure class="product-thumb-item">
+                                <img src="assets/img/single-product/prod-1-3.jpg" alt="Single Product"/>
+                            </figure>
+                        </div>
+
+
+                    </div>
+
+                    <!-- Product Thumbnail Nav -->
+                    <div class="vertical-tab-nav">
+                        <figure class="product-thumb-item">
+                            <img src="assets/img/single-product/prod-1-1.jpg" alt="Single Product"/>
+                        </figure>
+                        <figure class="product-thumb-item">
+                            <img src="assets/img/single-product/prod-1-2.jpg" alt="Single Product"/>
+                        </figure>
+                        <figure class="product-thumb-item mb-0">
+                            <img src="assets/img/single-product/prod-1-3.jpg" alt="Single Product"/>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <!-- End Single Product Thumbnail -->
+
+            <!-- Start Single Product Content -->
+            <div class="col-xl-5 col-lg-6">
+                <div class="single-product-content-wrapper">
+                    <div class="single-product-details">
+                        <h2 class="product-name">Название товара</h2>
+                        <div class="prices-stock-status d-flex align-items-center justify-content-between">
+                            <div class="prices-group">
+                                <del class="old-price">5000 р</del>
+                                <span class="price">4000 р</span>
+                            </div>
+                            <span class="stock-status"><i class="dl-icon-check-circle1"></i> В наличии</span>
+                        </div>
+                        <p class="product-desc">Ut enim added minim veniam, quis nostrud exercitation ullamco ommodo
+                            consequat. Duis aute irure dolor in reprehenderit dolore eu fugiat nulla pariatur. Excepteur
+                            sint occaecat cupidatat non proident. Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Ab dolorem eum labore minima possimus quaerat quod recusandae repellat sequi ut.</p>
+
+                        <div class="quantity-btn-group d-flex">
+                            <div class="pro-qty">
+                                <input type="text" id="quantity" value="1"/>
+                            </div>
+                            <div class="list-btn-group">
+                                <a href="cart.html" class="btn btn-black">Добавить в корзину</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-description-review">
+                        <!-- Product Description Tab Menu -->
+                        <ul class="nav nav-tabs desc-review-tab-menu" id="desc-review-tab" role="tablist">
+                            <li>
+                                <a class="active" id="desc-tab" data-toggle="tab" href="#descriptionContent" role="tab">Описание</a>
+                            </li>
+                            <li>
+                                <a id="profile-tab" data-toggle="tab" href="#reviewContent">Отзывы</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="descriptionContent">
+                                <div class="description-content">
+                                    <p class="m-0">Donec venenatis tellus ut nisl rutrum luctus. Quisque euismod rutrum
+                                        nibh, vel euismod augue iaculis eget. Orci varius natoque penatibus et magnis
+                                        dis parturient montes, nascetur ridiculus mus. Fusce magna nunc, iaculis sit
+                                        amet eros eu, accumsan accumsan lacus. Aliquam viverra tellus quis ligula
+                                        rutrum, ac ornare lorem rutrum. Suspendisse sagittis nisl sit amet nibh euismod
+                                        con.</p>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="reviewContent">
+                                <div class="product-ratting-wrap">
+                                    <div class="pro-avg-ratting">
+                                        <h4>4.5 <span>(всего)</span></h4>
+                                        <span>На основани 9 отзывов</span>
+                                    </div>
+                                    <div class="rattings-wrapper">
+
+                                        <div class="sin-rattings">
+                                            <div class="ratting-author">
+                                                <h3>Александр</h3>
+                                                <div class="ratting-star">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <span>(5)</span>
+                                                </div>
+                                            </div>
+                                            <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+                                                sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est,
+                                                qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
+                                        </div>
+
+                                        <div class="sin-rattings">
+                                            <div class="ratting-author">
+                                                <h3>Николай</h3>
+                                                <div class="ratting-star">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <span>(5)</span>
+                                                </div>
+                                            </div>
+                                            <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+                                                sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est,
+                                                qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
+                                        </div>
+
+                                        <div class="sin-rattings">
+                                            <div class="ratting-author">
+                                                <h3>Ольга</h3>
+                                                <div class="ratting-star">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <span>(5)</span>
+                                                </div>
+                                            </div>
+                                            <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+                                                sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est,
+                                                qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="ratting-form-wrapper">
+                                        <h3>Добавить свой отзыв</h3>
+                                        <form action="#" method="post">
+                                            <div class="ratting-form row">
+                                                <div class="col-12 mb-16">
+                                                    <h5>Рейтинг:</h5>
+                                                    <div class="ratting-star fix">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12 mb-10">
+                                                    <label for="name">Имя:</label>
+                                                    <input id="name" placeholder="Name" type="text">
+                                                </div>
+                                                <div class="col-md-6 col-12 mb-10">
+                                                    <label for="email">Емайл:</label>
+                                                    <input id="email" placeholder="Email" type="text">
+                                                </div>
+                                                <div class="col-12">
+                                                    <label for="your-review">Что думаете:</label>
+                                                    <textarea name="review" id="your-review"
+                                                              placeholder="Write a review"></textarea>
+                                                </div>
+                                                <div class="col-12 mt-22">
+                                                    <button class="btn btn-black">Отправить</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="single-product-footer d-block d-sm-flex justify-content-between">
+                        <div class="prod-footer-left mb-xs-26">
+                            <span class="sku mb-6 d-block">Артикул: 251</span>
+                            <ul class="prod-footer-list">
+                                <li class="list-name">Категории:</li>
+                                <li><a href="#">Новинки</a></li>
+                                <li><a href="#">Аксессуары</a></li>
+                                <li><a href="#">Одежда</a></li>
+                                <li><a href="#">Девушки</a></li>
+                            </ul>
+                            <ul class="prod-footer-list">
+                                <li class="list-name">Теги:</li>
+                                <li><a href="#">Без кожи и меха</a></li>
+                                <li><a href="#">Весна 2020</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Single Product Content -->
+        </div>
+    </div>
+</div>
+<!--== End Single Product Page Wrapper ==-->
+
+<!--== Start Related Products Area ==-->
+<section id="related-products-wrapper" class="pb-48 pb-md-18 pb-sm-8">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Start Section title -->
+            <div class="col-lg-8 m-auto text-center">
+                <div class="section-title-wrap">
+                    <h2>Смотрите также</h2>
+                </div>
+            </div>
+            <!-- End Section title -->
+        </div>
+
+        <div class="row products-on-column">
+            <!-- Start Single Product -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="single-product-wrap">
+                    <!-- Product Thumbnail -->
+                    <figure class="product-thumbnail">
+                        <a href="single-product.html" class="d-block">
+                            <img class="primary-thumb" src="assets/img/products/prod-1-1.jpg"
+                                 alt="Product"/>
+                            <img class="secondary-thumb" src="assets/img/products/prod-1-2.jpg"
+                                 alt="Product"/>
+                        </a>
+                        <figcaption class="product-hvr-content">
+                            <a href="#" class="btn btn-black btn-addToCart">Добавить в корзинку</a>
+
+                            <span class="product-badge">Новинка</span>
+                        </figcaption>
+                    </figure>
+
+                    <!-- Product Details -->
+                    <div class="product-details">
+                        <h2 class="product-name"><a href="single-product.html">Товар 1</a></h2>
+                        <div class="product-prices">
+                            <del class="oldPrice">5000 р</del>
+                            <span class="price">4000 р</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Single Product -->
+
+            <!-- Start Single Product -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="single-product-wrap">
+                    <!-- Product Thumbnail -->
+                    <figure class="product-thumbnail">
+                        <a href="single-product.html" class="d-block">
+                            <img class="primary-thumb" src="assets/img/products/prod-2-1.jpg"
+                                 alt="Product"/>
+                            <img class="secondary-thumb" src="assets/img/products/prod-2-2.jpg"
+                                 alt="Product"/>
+                        </a>
+                        <figcaption class="product-hvr-content">
+                            <a href="#" class="btn btn-black btn-addToCart">Добавить в корзину</a>
+
+                            <span class="product-badge">Новинка</span>
+                        </figcaption>
+                    </figure>
+
+                    <!-- Product Details -->
+                    <div class="product-details">
+                        <h2 class="product-name"><a href="single-product.html">Товар 2</a></h2>
+                        <div class="product-prices">
+													<del class="oldPrice">5000 р</del>
+													<span class="price">4000 р</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Single Product -->
+
+            <!-- Start Single Product -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="single-product-wrap">
+                    <!-- Product Thumbnail -->
+                    <figure class="product-thumbnail">
+                        <a href="single-product.html" class="d-block">
+                            <img class="primary-thumb" src="assets/img/products/prod-3-1.jpg"
+                                 alt="Product"/>
+                            <img class="secondary-thumb" src="assets/img/products/prod-3-2.jpg"
+                                 alt="Product"/>
+                        </a>
+                        <figcaption class="product-hvr-content">
+                            <a href="#" class="btn btn-black btn-addToCart">Добавить в корзину</a>
+
+                            <span class="product-badge">Новинка</span>
+                        </figcaption>
+                    </figure>
+
+                    <!-- Product Details -->
+                    <div class="product-details">
+                        <h2 class="product-name"><a href="single-product.html">Товар 3</a></h2>
+                        <div class="product-prices">
+													<del class="oldPrice">5000 р</del>
+													<span class="price">4000 р</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Single Product -->
+
+            <!-- Start Single Product -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="single-product-wrap">
+                    <!-- Product Thumbnail -->
+                    <figure class="product-thumbnail">
+                        <a href="single-product.html" class="d-block">
+                            <img class="primary-thumb" src="assets/img/products/prod-4-1.jpg"
+                                 alt="Product"/>
+                            <img class="secondary-thumb" src="assets/img/products/prod-4-2.jpg"
+                                 alt="Product"/>
+                        </a>
+                        <figcaption class="product-hvr-content">
+                            <a href="#" class="btn btn-black btn-addToCart">Добавить в корзину</a>
+
+                        </figcaption>
+                    </figure>
+
+                    <!-- Product Details -->
+                    <div class="product-details">
+                        <h2 class="product-name"><a href="single-product.html">Товар 4</a></h2>
+                        <div class="product-prices">
+													<del class="oldPrice">5000 р</del>
+													<span class="price">4000 р</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Single Product -->
+        </div>
+    </div>
+</section>
+<!--== End Related Products Area ==-->
+
+<!--== Start Footer Section ===-->
+<footer id="footer-area">
+    <!-- Start Footer Widget Area -->
+    <div class="footer-widget-area pt-40 pb-28">
+        <div class="container">
+            <div class="footer-widget-content">
+                <div class="row">
+
+                    <!-- Start Footer Widget Item -->
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="footer-widget-item-wrap">
+                            <h3 class="widget-title">Каталог</h3>
+                            <div class="widget-body">
+                                <ul class="footer-list">
+                                    <li><a href="index.html">Обычный</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Footer Widget Item -->
+
+                    <!-- Start Footer Widget Item -->
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="footer-widget-item-wrap">
+                            <h3 class="widget-title">Страницы</h3>
+                            <div class="widget-body">
+                                <ul class="footer-list">
+
+                                    <li><a href="cart.html">Корзина</a></li>
+                                    <li><a href="checkout.html">Оплата</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Footer Widget Item -->
+
+                    <!-- Start Footer Widget Item -->
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="footer-widget-item-wrap">
+                            <h3 class="widget-title">Товары</h3>
+                            <div class="widget-body">
+                                <ul class="footer-list">
+                                    <li><a href="single-product.html">Простой</a></li>
+                                    <li><a href="single-product-grouped.html">Сгруппированный</a></li>
+                                    <li><a href="single-product-affiliate.html">Внешний/Партнерский</a></li>
+																		<li><a href="single-product-variable.html">Вариативный</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Footer Widget Item -->
+
+                    <!-- Start Footer Widget Item -->
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="footer-widget-item-wrap">
+                            <h3 class="widget-title">Напишите мне</h3>
+                            <div class="widget-body">
+                                <div class="contact-text">
+                                    <a href="#">(+1) 234 56 78</a>
+                                    <a href="#">me@misha.blog</a>
+                                    <p>Санкт-Петербург, Невский пр.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Footer Widget Item -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer Widget Area -->
+
+    <!-- Start Footer Bottom Area -->
+    <div class="footer-bottom-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 col-lg-3 m-auto order-1">
+                    <div class="footer-social-icons nav justify-content-center justify-content-sm-start mb-xs-10">
+                        <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-sm-5 col-lg-6 m-auto order-3 order-sm-2 text-center text-sm-left text-lg-center">
+                    <div class="copyright-text mt-xs-10 ">
+                        <p>&copy; 2020 Курс WooCommerce от Миши Рудрастых.</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-lg-3 m-auto order-2 text-center text-md-right">
+                    <img src="assets/img/payments.png" alt="Payment Method"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer Bottom Area -->
+</footer>
+<!--== End Footer Section ===-->
+
+
+<!--== Start Mini Cart Wrapper ==-->
+<div class="mfp-hide modal-minicart" id="miniCart-popup">
+    <div class="minicart-content-wrap">
+        <h2>Корзина</h2>
+        <div class="minicart-product-list">
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex">
+                <figure class="product-thumb">
+                    <a href="single-product.html"><img src="assets/img/products/prod-1-1.jpg" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="single-product.html">Какой-то товар</a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">1</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price">9999 р</span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
+
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex">
+                <figure class="product-thumb">
+                    <a href="single-product.html"><img src="assets/img/products/prod-2-1.jpg" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="single-product.html">Второй товар</a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">2</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price">3900 р</span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
+
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex">
+                <figure class="product-thumb">
+                    <a href="single-product.html"><img src="assets/img/products/prod-3-1.jpg" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="single-product.html">Ещё один товар</a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">1</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price">3300 р</span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
+
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex">
+                <figure class="product-thumb">
+                    <a href="single-product.html"><img src="assets/img/products/prod-4-1.jpg" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="single-product.html">Найс сникеры</a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">1</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price">3300 р</span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
+        </div>
+        <div class="minicart-calculation-wrap d-flex justify-content-between align-items-center">
+            <span class="cal-title">Подытог</span>
+            <span class="cal-amount">11900 р</span>
+        </div>
+        <div class="minicart-btn-group mt-38">
+            <a href="cart.html" class="btn btn-black ">Просмотр корзины</a>
+            <a href="checkout.html" class="btn btn-black mt-10">Оформление заказа</a>
+        </div>
+    </div>
+</div>
+<!--== End Mini Cart Wrapper ==-->
+
+
+
+<!--=======================Javascript============================-->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+</body>
+</html>
