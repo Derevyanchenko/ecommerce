@@ -49,7 +49,25 @@ remove_action('woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 
 remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
 
-add_action( 'woocommerce_archive_description', 'woocommerce_breadcrumb', 0 );
+add_filter( 'woocommerce_show_page_title', function() {
+    if( is_shop() ) {
+        return false;
+    } 
+});
+
+add_action( 'woocommerce_before_main_content', 'ecommerce_add_custom_page_title', 45 );
+function ecommerce_add_custom_page_title() {
+    if( is_product() ) { ?>
+        <h2><?php the_title() ?></h2>
+    <?php 
+    } else { ?>
+        <h2><?php woocommerce_page_title() ?></h2>
+    <?php
+    }
+}
+
+add_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 50 );
+
 
 /**
  * Change several of the breadcrumb defaults
@@ -66,7 +84,7 @@ function ecommerce_woocommerce_breadcrumbs() {
         );
 }
 
-add_action( 'woocommerce_archive_description',  'ecommerce_add_banner_wrapper_end',  5);
+add_action( 'woocommerce_before_main_content',  'ecommerce_add_banner_wrapper_end',  55);
 function ecommerce_add_banner_wrapper_end() {
     ?>
                     </div>
@@ -109,9 +127,7 @@ function ecommerce_archive_product_loop_end() {
 // remove sidebar
 add_action('woocommerce_before_main_content', 'remove_sidebar' );
 function remove_sidebar() {
-    if ( is_shop() ) { 
-        remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
-    }
+    remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
 }
 
 add_action( 'woocommerce_before_shop_loop', 'ecommerce_sidebar_wrap_start', 10 );
@@ -204,14 +220,6 @@ function ecommerce_shopping_filter_custom() {
         <h3 class="sidebar-title">Цены</h3>
         <div class="sidebar-body">
             <div class="price-range-wrap">
-                <!-- ?min_price=170&max_price=1000 -->
-                <?php
-                    // echo '<pre>';
-                    // var_dump($products);
-                    // echo '</pre>';
-                    // wp_die();
-                ?>
-                
                 <div class="price-range" data-min="10" data-max="1000"></div>
                 <div class="range-slider">
                     <form  method="get" action="" id="price_filter">
@@ -442,3 +450,105 @@ function ecommerce_content_wrapper_end() {
 }
 
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
+
+
+/***
+ *  Single product
+ ***/ 
+remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
+remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
+add_action( 'woocommerce_before_single_product_summary', 'ecommerce_custom_show_product_images', 20 );
+function ecommerce_custom_show_product_images() {
+    global $product;
+    $product_gallery_images_url = [];
+    $attachment_ids = $product->get_gallery_image_ids();
+    foreach( $attachment_ids as $attachment_id ) {
+        $product_gallery_images_url[] = wp_get_attachment_url( $attachment_id );
+    }
+
+    $single_img_url = wp_get_attachment_url($product->get_image_id());
+  
+    if( ! empty($product_gallery_images_url) ) :
+    ?>
+        <div class="single-product-thumb-wrap tab-style-left p-0 pb-sm-30 pb-md-30">
+            <!-- Product Thumbnail Large View -->
+            <div class="product-thumb-large-view">
+                <div class="product-thumb-carousel vertical-tab">
+
+                    <?php foreach($product_gallery_images_url as $image_url): ?>
+                        <figure class="product-thumb-item">
+                            <img src="<?php echo $image_url; ?>" alt="Single Product"/>
+                        </figure>
+                    <?php endforeach; ?>
+
+                </div>
+
+
+            </div>
+
+            <!-- Product Thumbnail Nav -->
+            <div class="vertical-tab-nav">
+                <?php foreach($product_gallery_images_url as $key => $image_url): ?>
+                    <figure class="product-thumb-item <?php count($product_gallery_images_url) == $key+1 ? 'mb-0' : '' ?>">
+                        <img src="<?php echo $image_url; ?>" alt="Single Product"/>
+                    </figure>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+    <?php else : ?>
+        <div class="single-product-thumb-wrap tab-style-left p-0 pb-sm-30 pb-md-30">
+            <!-- Product Thumbnail Large View -->
+            <div class="product-thumb-large-view">
+                <img src="<?php echo $single_img_url; ?>" alt="">
+            </div>
+    </div>
+
+    <?php endif; 
+}
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+add_action( 'woocommerce_single_product_summary', 'ecommerce_custom_template_single_title', 5 );
+function ecommerce_custom_template_single_title() {
+    ?>
+        <h2 class="product-name"><?php the_title(); ?></h2>
+    <?php
+}
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+add_action( 'woocommerce_single_product_summary', 'ecommerce_custom_single_price', 10 );
+function ecommerce_custom_single_price() {
+    global $product;
+    ?>
+        <div class="prices-stock-status d-flex align-items-center justify-content-between">
+            <div class="prices-group">
+                <del class="old-price"><?php echo $product->get_regular_price() . ' ' . get_woocommerce_currency_symbol(); ?></del>
+                <span class="price"><?php echo $product->get_sale_price() . ' ' . get_woocommerce_currency_symbol(); ?></span>
+            </div>
+            <?php if( ! empty( $product->get_availability()['class'] ) ): ?>
+                <span class="stock-status"><i class="dl-icon-check-circle1"></i> В наличии</span>
+            <?php endif; ?>
+        </div>
+    <?php
+}
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+add_action( 'woocommerce_single_product_summary', 'ecommerce_custom_single_excerpt', 20 );
+function ecommerce_custom_single_excerpt() {
+    echo sprintf(
+        '<p class="product-desc">%s</p>',
+        get_the_excerpt()
+    );
+}
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+
+add_action( 'woocommerce_single_product_summary', 'ecommerce_single_product_details_end', 40 );
+function ecommerce_single_product_details_end() {
+    echo '</div>';
+}
+
+
+add_action( 'woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 80 );
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );

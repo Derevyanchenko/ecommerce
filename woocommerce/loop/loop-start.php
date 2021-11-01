@@ -18,6 +18,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+// if (is_shop()) :
 ?>
 <!--== Start Shop Page Wrapper ==-->
 <div class="col-lg-9">

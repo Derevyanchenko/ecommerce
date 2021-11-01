@@ -75,12 +75,15 @@ jQuery( function( $ ) {
 			e.preventDefault();
 			var $button = $(this);
 			var oldValue = $button.parent().find('input').val();
+			var WoooriginalInput = $('.quantity .input-text.qty.text').val();
 			if ($button.hasClass('inc')) {
 					var newVal = parseFloat(oldValue) + 1;
+					WoooriginalInput + 1;
 			} else {
 					// Don't allow decrementing below zero
 					if (oldValue > 0) {
 							var newVal = parseFloat(oldValue) - 1;
+							WoooriginalInput - 1;
 					} else {
 							newVal = 0;
 					}
