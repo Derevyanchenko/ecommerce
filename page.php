@@ -16,15 +16,7 @@ get_header();
 the_post();
 ?>
 
-	<main id="primary" class="site-main">
-		<div class="page-single" style="padding: 100px 0;">
-			<div class="container">
-				<?php woocommerce_content(); ?>
-			</div>
-		</div>
-
-	</main><!-- #main -->
+	<?php the_content(); ?>
 
 <?php
-get_sidebar();
 get_footer();

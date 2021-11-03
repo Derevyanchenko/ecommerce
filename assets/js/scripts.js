@@ -69,26 +69,62 @@ jQuery( function( $ ) {
 		Product Quantity
 	==============================*/
 	var proQty = $(".pro-qty");
-	proQty.append('<a href="#" class="inc qty-btn">+</a>');
-	proQty.append('<a href="#" class= "dec qty-btn">-</a>');
+	// proQty.append('<a href="#" class="inc qty-btn">+</a>');
+	// proQty.append('<a href="#" class= "dec qty-btn">-</a>');
 	$('.qty-btn').on('click', function (e) {
 			e.preventDefault();
+			console.log("clicked");
 			var $button = $(this);
 			var oldValue = $button.parent().find('input').val();
-			var WoooriginalInput = $('.quantity .input-text.qty.text').val();
-			if ($button.hasClass('inc')) {
+
+			if ( proQty.hasClass("cart-page__qty") ) {
+
+				var WoooriginalInput = $button.closest(".product-quantity").find(".input-text.qty.text");
+				
+				if ($button.hasClass('inc')) {
+					var newVal = parseFloat(oldValue) + 1;
+					WoooriginalInput.val(newVal);
+				} else {
+						// Don't allow decrementing below zero
+						if (oldValue > 0) {
+							var newVal = parseFloat(oldValue) - 1;
+							WoooriginalInput.val(newVal);
+						} else {
+							newVal = 0;
+						}
+				}
+				$button.parent().find('input').val(newVal);	
+				WoooriginalInput.trigger('change');
+
+			} else {
+
+				var WoooriginalInput = $('.input-text.qty.text').val();
+				if ($button.hasClass('inc')) {
 					var newVal = parseFloat(oldValue) + 1;
 					WoooriginalInput + 1;
-			} else {
-					// Don't allow decrementing below zero
-					if (oldValue > 0) {
+				} else {
+						// Don't allow decrementing below zero
+						if (oldValue > 0) {
 							var newVal = parseFloat(oldValue) - 1;
 							WoooriginalInput - 1;
-					} else {
+						} else {
 							newVal = 0;
-					}
+						}
+				}
+				$button.parent().find('input').val(newVal);	
 			}
-			$button.parent().find('input').val(newVal);
+			
+	});
+
+	$('input.quantity').on('input', function (e) {
+		e.preventDefault();
+		console.log("input");
+		var that = $(this),
+			thatValue = parseInt(that.val()),
+			oldInput = that.closest(".product-quantity").find(".input-text.qty.text");
+
+		oldInput.val(thatValue);
+
 	});
 
 	/*==================================

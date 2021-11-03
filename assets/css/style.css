@@ -5849,3 +5849,19 @@ p.stars.selected a.active:before {
 .single-product-content-wrapper .quantity {
   display: none;
 }
+
+/* .product-quantity__old-input {
+  display: none;
+} */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

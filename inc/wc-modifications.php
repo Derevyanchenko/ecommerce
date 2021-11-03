@@ -552,3 +552,12 @@ function ecommerce_single_product_details_end() {
 
 add_action( 'woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 80 );
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+
+
+// #################################################################################################
+/***
+ *  Cart Page
+ ***/ 
+
+
+ 
