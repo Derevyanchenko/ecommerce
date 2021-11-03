@@ -136,6 +136,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 													?>
 													</div>
 												</td>
+												
 
 												<td class="product-subtotal" data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>">
 													<span class="price">

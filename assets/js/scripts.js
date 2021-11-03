@@ -71,7 +71,7 @@ jQuery( function( $ ) {
 	var proQty = $(".pro-qty");
 	// proQty.append('<a href="#" class="inc qty-btn">+</a>');
 	// proQty.append('<a href="#" class= "dec qty-btn">-</a>');
-	$('.qty-btn').on('click', function (e) {
+	$(".woocommerce").on('click', '.qty-btn', function (e) {
 			e.preventDefault();
 			console.log("clicked");
 			var $button = $(this);
@@ -95,6 +95,7 @@ jQuery( function( $ ) {
 				}
 				$button.parent().find('input').val(newVal);	
 				WoooriginalInput.trigger('change');
+				$("button[name='update_cart']").trigger("submit");
 
 			} else {
 
@@ -116,7 +117,7 @@ jQuery( function( $ ) {
 			
 	});
 
-	$('input.quantity').on('input', function (e) {
+	$('.woocommerce').on('input', 'input.quantity', function (e) {
 		e.preventDefault();
 		console.log("input");
 		var that = $(this),
