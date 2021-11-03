@@ -560,4 +560,15 @@ remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_p
  ***/ 
 
 
- 
+//  ajax upd cart count on the shop page
+
+// add_filter( 'woocommerce_add_to_cart_fragments', 'ecommerce_add_to_cart_fragment' );
+
+// function ecommerce_add_to_cart_fragment( $fragments ) {
+
+// 	global $woocommerce;
+
+// 	$fragments['.cart-count'] = '<button class="mini-cart-icon modalActive" data-mfp-src="#miniCart-popup"><i class="fa fa-shopping-cart"></i><span class="cart-count">' . $woocommerce->cart->cart_contents_count; . '</span></button>';
+//  	return $fragments;
+
+//  }

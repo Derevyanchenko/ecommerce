@@ -150,34 +150,52 @@ do_action( 'woocommerce_before_cart' ); ?>
 										}
 									}
 									?>
-
-									<?php do_action( 'woocommerce_cart_contents' ); ?>
-
-									<tr>
-										<td colspan="6" class="actions">
-
-											<?php if ( wc_coupons_enabled() ) { ?>
-												<div class="coupon">
-													<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <button type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
-													<?php do_action( 'woocommerce_cart_coupon' ); ?>
-												</div>
-											<?php } ?>
-
-											<button type="submit" class="button" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
-
-											<?php do_action( 'woocommerce_cart_actions' ); ?>
-
-											<?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
-										</td>
-									</tr>
-
-									<?php do_action( 'woocommerce_after_cart_contents' ); ?>
 								</tbody>
 							</table>
-
 						</div>
+
+						<?php do_action( 'woocommerce_cart_contents' ); ?>
+
+						<div class="cart-coupon-update-area d-sm-flex justify-content-between align-items-center">
+							<div class="actions coupon-form-wrap">
+
+								<?php if ( wc_coupons_enabled() ) { ?>
+									<div class="coupon" style="position: relative;">
+										<input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <button type="submit" class="button btn-apply" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
+										<?php do_action( 'woocommerce_cart_coupon' ); ?>
+									</div>
+								<?php } ?>
+							</div>
+							<div class="cart-update-buttons mt-xs-14">
+								<button type="submit" class="button btn-update-cart" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
+							</div>
+
+							<?php do_action( 'woocommerce_cart_actions' ); ?>
+
+							<?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
+						</div>
+
+						<?php do_action( 'woocommerce_after_cart_contents' ); ?>
+
 					</div>
 				</div>
+
+				<!-- cart total -->
+
+				<?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
+
+				<div class="col-lg-4">
+					<?php
+						/**
+						 * Cart collaterals hook.
+						 *
+						 * @hooked woocommerce_cross_sell_display
+						 * @hooked woocommerce_cart_totals - 10
+						 */
+						do_action( 'woocommerce_cart_collaterals' );
+					?>
+				</div>
+
 			</div>
 		</div>
 	</div>
@@ -185,18 +203,5 @@ do_action( 'woocommerce_before_cart' ); ?>
 	<?php do_action( 'woocommerce_after_cart_table' ); ?>
 </form>
 
-<?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
-
-<div class="cart-collaterals">
-	<?php
-		/**
-		 * Cart collaterals hook.
-		 *
-		 * @hooked woocommerce_cross_sell_display
-		 * @hooked woocommerce_cart_totals - 10
-		 */
-		do_action( 'woocommerce_cart_collaterals' );
-	?>
-</div>
 
 <?php do_action( 'woocommerce_after_cart' ); ?>

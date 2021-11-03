@@ -35,3 +35,18 @@ function register_my_widgets(){
 		'after_sidebar'  => '', // WP 5.6
 	) );
 }
+
+add_filter( 'nav_menu_css_class', 'add_my_class_to_nav_menu', 10, 2 );
+function add_my_class_to_nav_menu( $classes, $item ){
+	/* $classes содержит
+	Array(
+		[1] => menu-item
+		[2] => menu-item-type-post_type
+		[3] => menu-item-object-page
+		[4] => menu-item-284
+	)
+	*/
+	$classes[] = 'dropdown-show';
+
+	return $classes;
+}

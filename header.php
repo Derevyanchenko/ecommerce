@@ -23,7 +23,7 @@
                     <div class="header-left-area d-flex align-items-center">
                         <!-- Start Logo Area -->
                         <div class="logo-area">
-                            <a href="index.html">Курс Миши</a>
+                            <a href="<?php echo site_url(); ?>">DD Shop</a>
                         </div>
                         <!-- End Logo Area -->
 
@@ -31,8 +31,8 @@
 
                     <div class="header-mainmenu-area d-none d-lg-block">
                         <!-- Start Main Menu -->
-                        <nav id="mainmenu-wrap">
-                            <ul class="nav mainmenu justify-content-center">
+                        <!-- <nav id="mainmenu-wrap"> -->
+                            <!-- <ul class="nav mainmenu justify-content-center">
 								<li class="dropdown-show"><a class="current" href="index.html">Каталог</a></li>
 								<li class="dropdown-show"><a href="#">Страницы</a>
 									<ul class="dropdown-nav">
@@ -50,15 +50,27 @@
 								</li>
 								<li><a href="#">Блог</a></li>
 								<li><a href="#">Контакты</a></li>
-							</ul>
-                        </nav>
+							</ul> -->
+                        <!-- </nav> -->
+                        <?php wp_nav_menu(array(
+                            'theme_location'  => 'header_menu',
+                            'menu'            => 'top_menu',
+                            'container'       => 'nav',
+                            'container_id'    => 'mainmenu-wrap',
+                            'menu_class'      => 'nav mainmenu justify-content-center',
+                        )); ?>
                         <!-- End Main Menu -->
                     </div>
 
                     <div class="header-right-area d-flex justify-content-end align-items-center">
                         <button class="mini-cart-icon modalActive" data-mfp-src="#miniCart-popup">
                             <i class="fa fa-shopping-cart"></i>
-                            <span class="cart-count">3</span>
+                            <span class="cart-count">
+                                <?php
+                                   global $woocommerce;
+                                   echo $woocommerce->cart->cart_contents_count;
+                                ?>
+                            </span>
                         </button>
                     </div>
                 </div>

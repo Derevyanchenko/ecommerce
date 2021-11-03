@@ -1367,9 +1367,9 @@ Start Page Header Wrapper
     display: block;
     padding: 5px 15px;
     position: relative; }
-    .mainmenu > li > a.current {
+    .mainmenu > li.current-menu-item > a {
       color: #d25b5b; }
-      .mainmenu > li > a.current:before {
+      .mainmenu > li.current-menu-item > a:before {
         background-color: #d25b5b;
         content: '';
         position: absolute;
@@ -5067,9 +5067,9 @@ Start Cart Page Wrapper
 
 .shopping-cart-table .product-list .remove-icon {
   margin-right: 15px; }
-  .shopping-cart-table .product-list .remove-icon button {
+  .shopping-cart-table .product-list .remove-icon a {
     color: #848484; }
-    .shopping-cart-table .product-list .remove-icon button:hover {
+    .shopping-cart-table .product-list .remove-icon a:hover {
       color: #d25b5b; }
 
 .shopping-cart-table .product-list .product-thumb {
@@ -5102,7 +5102,7 @@ Start Cart Page Wrapper
         width: 100%; } }
     .cart-coupon-update-area .coupon-form-wrap form {
       position: relative; }
-      .cart-coupon-update-area .coupon-form-wrap form input {
+      .cart-coupon-update-area .coupon-form-wrap  input {
         border: none;
         border-bottom: 1px solid #e7e7e7;
         display: block;
@@ -5113,9 +5113,9 @@ Start Cart Page Wrapper
         -o-transition: 0.2s 0.2s ease-out;
         transition: 0.2s 0.2s ease-out;
         width: 100%; }
-        .cart-coupon-update-area .coupon-form-wrap form input:focus {
+        .cart-coupon-update-area .coupon-form-wrap input:focus {
           border-color: #d25b5b; }
-      .cart-coupon-update-area .coupon-form-wrap form .btn-apply {
+      .cart-coupon-update-area .coupon-form-wrap .btn-apply {
         position: absolute;
         right: 0;
         top: 50%;
@@ -5864,4 +5864,10 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+.page-header-wrapper .page-header-content h2 {
+  font-weight: 400;
+  font-size: 3.6rem;
+  margin-top: -7px;
 }
