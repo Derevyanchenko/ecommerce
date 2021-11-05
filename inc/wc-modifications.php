@@ -350,10 +350,11 @@ function ecommerce_add_to_cart() {
     echo apply_filters(
         'woocommerce_loop_add_to_cart_link', // WPCS: XSS ok.
         sprintf(
-            '<a href="%s" data-quantity="%s" class="%s" %s>%s</a>',
+            '<a href="%s" data-product_id="%s" data-quantity="%s" class="%s" %s>%s</a>',
             esc_url( $product->add_to_cart_url() ),
+            $product->get_id(),
             esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ),
-            esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' ) . ' btn btn-black btn-addToCart',
+            'btn btn-black btn-addToCart product_type_' . $product->get_type() . ' ' . ( $product->is_purchasable() && $product->supports('ajax_add_to_cart') ? 'add_to_cart_button ajax_add_to_cart' : '' ),
             isset( $args['attributes'] ) ? wc_implode_html_attributes( $args['attributes'] ) : '',
             esc_html( $product->add_to_cart_text() )
         ),
@@ -392,6 +393,8 @@ function ecommerce_custom_woocommerce_template_loop_product_title() {
         <h2 class="product-name"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
     <?php
 }
+
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
 
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
 add_action( 'woocommerce_shop_loop_item_title', 'ecommerce_custom_price_wrapper_start', 15 );
@@ -455,6 +458,10 @@ remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_pr
 /***
  *  Single product
  ***/ 
+
+
+remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
+
 remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
 remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
 add_action( 'woocommerce_before_single_product_summary', 'ecommerce_custom_show_product_images', 20 );
@@ -559,16 +566,46 @@ remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_p
  *  Cart Page
  ***/ 
 
+remove_action('woocommerce_before_cart', 'woocommerce_output_all_notices',  10);
+//  remove_action("woocommerce_before_mini_cart", 20);
 
 //  ajax upd cart count on the shop page
 
-// add_filter( 'woocommerce_add_to_cart_fragments', 'ecommerce_add_to_cart_fragment' );
+add_filter( 'woocommerce_add_to_cart_fragments', 'ecommerce_add_to_cart_fragment' );
+function ecommerce_add_to_cart_fragment( $fragments ) {
+	global $woocommerce;
+	
+    $fragments['.cart-count'] = '<span class="cart-count">' . $woocommerce->cart->cart_contents_count . '</span>';
+ 	return $fragments;
 
-// function ecommerce_add_to_cart_fragment( $fragments ) {
+}
 
-// 	global $woocommerce;
 
-// 	$fragments['.cart-count'] = '<button class="mini-cart-icon modalActive" data-mfp-src="#miniCart-popup"><i class="fa fa-shopping-cart"></i><span class="cart-count">' . $woocommerce->cart->cart_contents_count; . '</span></button>';
-//  	return $fragments;
+remove_action("woocommerce_widget_shopping_cart_total", "ecommerce_custom_widget_shopping_cart_subtotal", 10);
+function ecommerce_custom_widget_shopping_cart_subtotal() {
+    echo '<span class="cal-title">' . esc_html__( 'Subtotal:', 'woocommerce' ) . '</span> ' . '<span class="cal-amount">' . WC()->cart->get_cart_subtotal() . '</span>'; 
+}
 
-//  }
+add_action( 'woocommerce_widget_shopping_cart_buttons', function(){
+    // Removing Buttons
+    remove_action( 'woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_button_view_cart', 10 );
+    remove_action( 'woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_proceed_to_checkout', 20 );
+
+    // Adding customized Buttons
+    add_action( 'woocommerce_widget_shopping_cart_buttons', 'custom_widget_shopping_cart_button_view_cart', 10 );
+    add_action( 'woocommerce_widget_shopping_cart_buttons', 'custom_widget_shopping_cart_proceed_to_checkout', 20 );
+}, 1 );
+
+// Custom cart button
+function custom_widget_shopping_cart_button_view_cart() {
+    $original_link = wc_get_cart_url();
+    $custom_link = home_url( '/cart/?id=1' ); // HERE replacing cart link
+    echo '<a href="' . esc_url( $custom_link ) . '" class="button wc-forward btn btn-black">' . esc_html__( 'View cart', 'woocommerce' ) . '</a>';
+}
+
+// Custom Checkout button
+function custom_widget_shopping_cart_proceed_to_checkout() {
+    $original_link = wc_get_checkout_url();
+    $custom_link = home_url( '/checkout/?id=1' ); // HERE replacing checkout link
+    echo '<a href="' . esc_url( $custom_link ) . '" class="button checkout wc-forward btn btn-black mt-10">' . esc_html__( 'Checkout', 'woocommerce' ) . '</a>';
+}

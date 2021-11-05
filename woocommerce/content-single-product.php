@@ -33,6 +33,9 @@ if ( post_password_required() ) {
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'pt-90 pt-md-60 pt-sm-50 pb-92 pb-md-58 pb-sm-50', $product ); ?>>
 	<div class="container-fluid">
+
+		<?php woocommerce_output_all_notices(); ?>
+
 		<div class="row">
 			<div class="col-xl-7 col-lg-6">
 				<?php

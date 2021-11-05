@@ -16,14 +16,17 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-
+?>
+<div class="container pt-86 pt-md-56 pt-sm-46 pb-50 pb-md-20 pb-sm-10"><?php woocommerce_output_all_notices(); ?></div>
+<?php
 do_action( 'woocommerce_before_cart' ); ?>
 
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
-	<div id="cart-page-wrapper" class="pt-86 pt-md-56 pt-sm-46 pb-50 pb-md-20 pb-sm-10">
+	<div id="cart-page-wrapper" class="">
 		<div class="container">
+
 			<div class="row">
 				<div class="col-lg-8">
 					<div class="shopping-cart-list-area">

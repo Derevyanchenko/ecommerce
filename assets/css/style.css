@@ -5871,3 +5871,87 @@ input[type=number] {
   font-size: 3.6rem;
   margin-top: -7px;
 }
+
+.woocommerce-notices-wrapper {
+
+}
+
+.woocommerce-notices-wrapper .woocommerce-message {
+  
+}
+
+.woocommerce-message {
+  background-color: #0f834d !important;
+  color: #ffffff !important;
+}
+
+.site-content>.col-full>.woocommerce>.woocommerce-message:first-child, .site-content>.col-full>.woocommerce>.woocommerce-info:first-child, .site-content>.col-full>.woocommerce>.woocommerce-error:first-child {
+    margin-top: 2.617924em;
+}
+.woocommerce-message {
+    background-color: #0f834d !important;
+    color: #ffffff !important;
+}
+.woocommerce-message, .woocommerce-info, .woocommerce-error, .woocommerce-noreviews, p.no-comments {
+    margin-bottom: 2.617924em;
+    background-color: #0f834d;
+    margin-left: 0;
+    border-radius: 2px;
+    color: #fff;
+    clear: both;
+    border-left: 0.6180469716em solid rgba(0,0,0,.15);
+    padding: 1em 2em 1em 3.5em;
+    position: relative;
+    list-style: none outside;
+}
+
+/* .woocommerce-message:before, .woocommerce-info:before, .woocommerce-error:before, .woocommerce-noreviews:before, p.no-comments:before {
+  font-family: "Font Awesome 5 Free";
+  content: ">";
+  display: inline-block;
+  position: absolute;
+  top: 1.05em;
+  left: 1.5em;
+  color: #fff;
+} */
+
+.woocommerce-message:before {
+  /* content: ">" !important; */
+}
+
+.woocommerce-error {
+  background-color: #e2401c !important;
+  color: #ffffff !important;
+}
+
+.woocommerce-message .button, .woocommerce-info .button, .woocommerce-error .button, .woocommerce-noreviews .button, p.no-comments .button {
+  float: right;
+  padding: 0;
+  background: 0 0;
+  color: #fff;
+  box-shadow: none;
+  line-height: 1.618;
+  margin-left: 1em;
+  padding-left: 1em;
+  border-width: 0;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: rgba(255,255,255,.25) !important;
+  border-radius: 0;
+}
+
+.woocommerce-message .button.wc-forward:after, .woocommerce-Button--next:after {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 1;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  line-height: inherit;
+  vertical-align: baseline;
+  content: ">";
+  margin-left: 0.5407911001em;
+}
