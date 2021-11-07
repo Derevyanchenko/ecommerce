@@ -5993,3 +5993,34 @@ table.variations {
 .woocommerce-variation .woocommerce-variation-price {
   display: none !important;
 }
+
+.woocommerce-privacy-policy-link {
+  color: #dc3545!important;
+}
+
+.woocommerce-privacy-policy-link:hover {
+  color: #bd2130!important;
+}
+
+.woocommerce-checkout-payment {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.wc_payment_methods li {
+  padding: 10px 0;
+}
+
+.wc_payment_methods .wc_payment_method .custom-control.custom-radio {
+  margin-bottom: 10px;
+} 
+
+.single-input-item {
+  display: block;
+}
+
+.woocommerce form .form-row .required {
+  color: red;
+  margin-left: 2px;
+  text-decoration: none;
+}

@@ -14,8 +14,7 @@
 
 get_header();
 the_post();
-if ( is_cart() || is_checkout() ) {
-?>
+if ( is_cart() || is_checkout() ) : ?>
 
 
 <!-- Start Page Header Wrapper -->
@@ -33,7 +32,21 @@ if ( is_cart() || is_checkout() ) {
 </div>
 <!-- End Page Header Wrapper -->
 
-	<?php
-		} 
-		the_content(); 
-get_footer();
+<!--== Start Checkout Page Wrapper ==-->
+<div id="checkout-page-wrapper" class="pt-90 pt-md-60 pt-sm-50 pb-50 pb-md-20 pb-sm-10">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+<?php endif; 
+
+    the_content(); 
+
+if ( is_cart() || is_checkout() ) : 
+?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php endif; 
+get_footer(); ?>

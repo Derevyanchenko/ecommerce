@@ -637,14 +637,48 @@ add_action( 'woocommerce_widget_shopping_cart_buttons', function(){
 // Custom cart button
 function custom_widget_shopping_cart_button_view_cart() {
     $original_link = wc_get_cart_url();
-    $custom_link = home_url( '/cart/?id=1' ); // HERE replacing cart link
+    $custom_link = home_url( '/cart/' ); // HERE replacing cart link
     echo '<a href="' . esc_url( $custom_link ) . '" class="button wc-forward btn btn-black">' . esc_html__( 'View cart', 'woocommerce' ) . '</a>';
 }
 
 // Custom Checkout button
 function custom_widget_shopping_cart_proceed_to_checkout() {
     $original_link = wc_get_checkout_url();
-    $custom_link = home_url( '/checkout/?id=1' ); // HERE replacing checkout link
+    $custom_link = home_url( '/checkout/' ); // HERE replacing checkout link
     echo '<a href="' . esc_url( $custom_link ) . '" class="button checkout wc-forward btn btn-black mt-10">' . esc_html__( 'Checkout', 'woocommerce' ) . '</a>';
 }
 
+// #################################################################################################
+/***
+ *  Checkout
+ ***/ 
+
+remove_action( 'woocommerce_checkout_terms_and_conditions', 'wc_checkout_privacy_policy_text', 20 );
+add_action( 'woocommerce_checkout_terms_and_conditions', 'ecommerce_custom_wc_checkout_privacy_policy_text', 20 );
+function ecommerce_custom_wc_checkout_privacy_policy_text() {
+    wc_privacy_policy_text( 'checkout' );
+}
+
+/**
+ * Remove Woocommerce Select2 - Woocommerce 3.2.1+
+ */
+function woo_dequeue_select2() {
+    if ( class_exists( 'woocommerce' ) ) {
+        wp_dequeue_style( 'select2' );
+        wp_deregister_style( 'select2' );
+
+        wp_dequeue_script( 'selectWoo');
+        wp_deregister_script('selectWoo');
+    } 
+}
+add_action( 'wp_enqueue_scripts', 'woo_dequeue_select2', 100 );
+
+/**
+ * Remove State field from the Checkout page
+ */
+function jeherve_remove_state_field( $fields ) {
+	unset( $fields['state'] );
+
+	return $fields;
+}
+add_filter( 'woocommerce_default_address_fields', 'jeherve_remove_state_field' );
