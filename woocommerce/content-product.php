@@ -23,9 +23,19 @@ global $product;
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
+
+$classes = '';
+if( is_shop() || is_archive() ) {
+	$classes = 'col-lg-4 col-sm-6';
+}
+
+if( is_product() ) {
+	$classes = 'col-sm-6 col-lg-3';
+}
+
 ?>
  <!-- Start Shop Page Product Area -->
- <div class="col-lg-4 col-sm-6">
+ <div class="<?php echo $classes; ?>">
 	<div class="single-product-wrap">
 	<?php
 	/**

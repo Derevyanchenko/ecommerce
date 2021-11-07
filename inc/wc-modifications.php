@@ -522,6 +522,8 @@ function ecommerce_custom_template_single_title() {
     <?php
 }
 
+add_filter( 'woocommerce_show_variation_price', '__return_true', 25 );
+
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 add_action( 'woocommerce_single_product_summary', 'ecommerce_custom_single_price', 10 );
@@ -530,8 +532,18 @@ function ecommerce_custom_single_price() {
     ?>
         <div class="prices-stock-status d-flex align-items-center justify-content-between">
             <div class="prices-group">
-                <del class="old-price"><?php echo $product->get_regular_price() . ' ' . get_woocommerce_currency_symbol(); ?></del>
-                <span class="price"><?php echo $product->get_sale_price() . ' ' . get_woocommerce_currency_symbol(); ?></span>
+                <?php if ( $product->get_regular_price() && empty( $product->get_sale_price() )  ) : ?>
+                    <span class="price"><?php echo $product->get_regular_price() . ' ' . get_woocommerce_currency_symbol(); ?></span>
+                <?php endif; ?>
+                <?php if ( $product->get_sale_price() ) : ?>
+                    <del class="old-price"><?php echo $product->get_regular_price() . ' ' . get_woocommerce_currency_symbol(); ?></del>
+                    <span class="price"><?php echo $product->get_sale_price() . ' ' . get_woocommerce_currency_symbol(); ?></span>
+                <?php endif; ?>
+
+                <?php if( $product->is_type( 'variable' ) ) : ?>
+                    <span class="price variable-product__price"><?php echo array_shift( array_shift($product->get_variation_prices()) ); ?> </span>
+                    <span class="price"><?php echo get_woocommerce_currency_symbol(); ?></span>
+                <?php endif; ?>
             </div>
             <?php if( ! empty( $product->get_availability()['class'] ) ): ?>
                 <span class="stock-status"><i class="dl-icon-check-circle1"></i> В наличии</span>
@@ -561,6 +573,33 @@ add_action( 'woocommerce_single_product_summary', 'woocommerce_output_product_da
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 
 
+/** 
+ * remove on single product panel 'Additional Information' since it already says it on tab.
+ */
+add_filter('woocommerce_product_additional_information_heading', 'ecommerce_product_additional_information_heading');
+ 
+function ecommerce_product_additional_information_heading() {
+    echo '';
+}
+
+add_action('woocommerce_before_single_product_summary', 'quadlayers_product_default_attributes');
+function quadlayers_product_default_attributes() {
+    global $product;
+    if (!count($default_attributes = get_post_meta($product->get_id(), '_default_attributes'))) {
+    $new_defaults = array();
+    $product_attributes = $product->get_attributes();
+    if (count($product_attributes)) {
+        foreach ($product_attributes as $key => $attributes) {
+        $values = explode(',', $product->get_attribute($key));
+        if (isset($values[0]) && !isset($default_attributes[$key])) {
+            $new_defaults[$key] = sanitize_key($values[0]);
+        }
+        }
+        update_post_meta($product->get_id(), '_default_attributes', $new_defaults);
+    }
+    }
+}  
+
 // #################################################################################################
 /***
  *  Cart Page
@@ -579,7 +618,6 @@ function ecommerce_add_to_cart_fragment( $fragments ) {
  	return $fragments;
 
 }
-
 
 remove_action("woocommerce_widget_shopping_cart_total", "ecommerce_custom_widget_shopping_cart_subtotal", 10);
 function ecommerce_custom_widget_shopping_cart_subtotal() {
@@ -609,3 +647,4 @@ function custom_widget_shopping_cart_proceed_to_checkout() {
     $custom_link = home_url( '/checkout/?id=1' ); // HERE replacing checkout link
     echo '<a href="' . esc_url( $custom_link ) . '" class="button checkout wc-forward btn btn-black mt-10">' . esc_html__( 'Checkout', 'woocommerce' ) . '</a>';
 }
+

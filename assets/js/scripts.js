@@ -69,8 +69,10 @@ jQuery( function( $ ) {
 		Product Quantity
 	==============================*/
 	var proQty = $(".pro-qty");
-	// proQty.append('<a href="#" class="inc qty-btn">+</a>');
-	// proQty.append('<a href="#" class= "dec qty-btn">-</a>');
+	if ( ! proQty.hasClass("cart-page__qty") ) {
+		proQty.append('<a href="#" class="inc qty-btn">+</a>');
+		proQty.append('<a href="#" class= "dec qty-btn">-</a>');
+	}
 	$(".woocommerce").on('click', '.qty-btn', function (e) {
 			e.preventDefault();
 			console.log("clicked");
@@ -190,4 +192,60 @@ jQuery( function( $ ) {
 			$('[data-method="' + $value + '"]').slideDown();
 	});
 
+	/*=============================
+		Variations change
+	==============================*/
+
+	var variation_price = $('.woocommerce-variation-price bdi').html();
+	$('.single-product-details .prices_group .price').html( variation_price );
+
+	$( '.configurable-list .change_size:first' ).addClass('active');
+
+	$( '.change_size' ).click(function(){
+		var el = $(this),
+				name = el.text(),
+				val = el.data( 'value' );
+
+		$( '.change_size' ).removeClass( 'active' );
+		el.addClass( 'active' );
+
+		$( '#pa_sizes' ).val( val );
+		$( '#pa_sizes' ).change();
+
+		$( '#configurable-name' ).html( 'Размер: <b>' + name + '</b>' );
+
+		var variation_price = $('.woocommerce-variation-price bdi').html();
+
+		$('.single-product-details .prices_group .price').html( variation_price );
+	});
+
+
+
+	$('.single_variation_wrap').on( 'show_variation', function( event, variation ) {
+
+		$( '.variable-product__price' ).text( variation.display_price );
+		console.log( variation );
+
+
+	} );
+
+	/*=============================
+		Star rating
+	==============================*/
+
+	$( '.change-star' ).click(function(){
+		var el = $(this),
+				val = el.data( 'value' );
+
+		el.addClass( 'active' );
+		el.nextAll().removeClass('active');
+		el.prevAll().addClass('active');
+
+
+		$( 'select[name="rating"]' ).val( val );
+
+	});
+
+	$( '#myTabContent .tab-pane:first-child' ).addClass( "show active" );
+	$( '#desc-review-tab li:first-child a' ).addClass( "active" );
 } );

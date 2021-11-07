@@ -45,7 +45,7 @@ if ( ! empty( $product_tabs ) ) : ?>
 				// echo $key . '<br>';
 			?>
 				<li>
-					<a href="#<?php echo $tab_link; ?>" class="<?php echo $key == 'description' ? 'active' : ''; ?>"  data-toggle="tab" role="tab">
+					<a href="#<?php echo $tab_link; ?>" data-toggle="tab" role="tab">
 						<?php echo wp_kses_post( apply_filters( 'woocommerce_product_' . $key . '_tab_title', $product_tab['title'], $key ) ); ?>
 					</a>
 				</li>
@@ -63,7 +63,7 @@ if ( ! empty( $product_tabs ) ) : ?>
 					$tab_link_content = "reviewContent";
 				}
 			?>
-				<div class="tab-pane fade <?php echo $keyContent == 'description' ? 'show active' : ''; ?>" id="<?php echo $tab_link_content; ?>">
+				<div class="tab-pane fade" id="<?php echo $tab_link_content; ?>">
 					<?php
 					if ( isset( $product_tab['callback'] ) ) {
 						call_user_func( $product_tab['callback'], $key, $product_tab );

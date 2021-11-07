@@ -31,6 +31,22 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 	<?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
 		<p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woocommerce' ) ) ); ?></p>
 	<?php else : ?>
+		
+		<div class="prod-configurable-content mt-38 mt-sm-24">
+			<div class="configurable-item">
+				<h5 class="configurable-name">Размер: <b>L</b></h5>
+				<ul class="configurable-list nav">
+
+
+				<?php foreach ( $attributes as $attribute_name => $options ) :
+					foreach ( $options as $option ): ?>
+					<li class="change_size" data-value="<?php echo $option; ?>"><span><?php echo $option; ?></span></li>
+				<?php endforeach;
+				endforeach; ?>
+				</ul>
+			</div>
+		</div>
+
 		<table class="variations" cellspacing="0">
 			<tbody>
 				<?php foreach ( $attributes as $attribute_name => $options ) : ?>
