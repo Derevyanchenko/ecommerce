@@ -658,27 +658,3 @@ add_action( 'woocommerce_checkout_terms_and_conditions', 'ecommerce_custom_wc_ch
 function ecommerce_custom_wc_checkout_privacy_policy_text() {
     wc_privacy_policy_text( 'checkout' );
 }
-
-/**
- * Remove Woocommerce Select2 - Woocommerce 3.2.1+
- */
-function woo_dequeue_select2() {
-    if ( class_exists( 'woocommerce' ) ) {
-        wp_dequeue_style( 'select2' );
-        wp_deregister_style( 'select2' );
-
-        wp_dequeue_script( 'selectWoo');
-        wp_deregister_script('selectWoo');
-    } 
-}
-add_action( 'wp_enqueue_scripts', 'woo_dequeue_select2', 100 );
-
-/**
- * Remove State field from the Checkout page
- */
-function jeherve_remove_state_field( $fields ) {
-	unset( $fields['state'] );
-
-	return $fields;
-}
-add_filter( 'woocommerce_default_address_fields', 'jeherve_remove_state_field' );

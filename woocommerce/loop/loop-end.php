@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if (is_shop()) {
+if ( is_shop() || is_product_category() ) {
 ?>
 				</div>
 			</div>

@@ -18,7 +18,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-if (is_shop()) {
+if ( is_shop() || is_product_category() ) {
 ?>
 <!--== Start Shop Page Wrapper ==-->
 <div class="col-lg-9">
