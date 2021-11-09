@@ -45,7 +45,7 @@
 										<li><a href="single-product.html">Простой</a></li>
 										<li><a href="single-product-grouped.html">Сгруппированный</a></li>
 										<li><a href="single-product-affiliate.html">Внешний/Партнерский</a></li>
-																			<li><a href="single-product-variable.html">Вариативный</a></li>
+										<li><a href="single-product-variable.html">Вариативный</a></li>
 									</ul>
 								</div>
 							</div>
@@ -58,9 +58,9 @@
 								<h3 class="widget-title">Напишите мне</h3>
 								<div class="widget-body">
 									<div class="contact-text">
-										<a href="#">(+1) 234 56 78</a>
-										<a href="#">me@misha.blog</a>
-										<p>Санкт-Петербург, Невский пр.</p>
+										<a href="tel:+380634475285">+38 063 447 5285</a>
+										<a href="mailto:danilderevyanchenko@gmail.com">danilderevyanchenko@gmail.com</a>
+										<p>Ukraine, Nikolaev city</p>
 									</div>
 								</div>
 							</div>
